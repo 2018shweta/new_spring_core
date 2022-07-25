@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- bean definitions here -->
+
+	<bean class="com.controller.SignUpController"
+		id="SignUpController"></bean>
+
+	<bean class="com.bean.UserBean" id="user" init-method="init" destroy-method="remove">
+
+		<property name="name" value="shweta"></property>
+		<property name="email" value="shweta@gmail.com"></property>
+
+	</bean>
+	
+	<bean class="com.bean.EmployeeBean" id ="employee" init-method="init" >
+	</bean>
+	
+	<bean class="com.bean.AddressBean" id="address">
+	
+	</bean>
+	
+	<bean class="com.bean.DoctorBean" id="doctor">
+	 <constructor-arg ref="address"></constructor-arg>
+	</bean>
+	<bean class="com.bean.PatientBean" id="paient">
+	
+	<property name="addressBean" ref="address"></property>
+	</bean>
+	
+
+</beans>
